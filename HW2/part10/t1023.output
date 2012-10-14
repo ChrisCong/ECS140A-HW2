@@ -1,0 +1,23 @@
+running e2c t1023
+compiling the C generated code
+t1023.c:2:1: warning: type specifier missing, defaults to 'int' [-Wimplicit-int]
+main() 
+^~~~
+1 warning generated.
+executing the a.out
+1
+2
+3
+4
+7744
+444
+6
+7
+444
+6
+7
+444
+6
+7
+4
+8844
