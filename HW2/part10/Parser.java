@@ -282,6 +282,7 @@ public class Parser {
             gcprint(tok.string);
             scan();
         }
+        else if( is(TK.)
         else
             parse_error("factor");
     }
@@ -326,7 +327,7 @@ public class Parser {
     // ensure current token is tk and skip over it.
     private void mustbe(TK tk) {
         if( ! is(tk) ) {
-            System.err.println( "mustbe: want " + tk + ", got " +
+            System.err.println( "musetbe: want " + tk + ", got " +
                                     tok);
             parse_error( "missing token (mustbe)" );
         }

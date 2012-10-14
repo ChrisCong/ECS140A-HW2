@@ -49,7 +49,7 @@ public class TK {
     public static final TK GT     = new TK("TK.GT");       // >
     public static final TK LE     = new TK("TK.LE");       // <=
     public static final TK GE     = new TK("TK.GE");       // >=
-
+	
 
     public static final TK ID     = new TK("TK.ID");       // identifier
 
