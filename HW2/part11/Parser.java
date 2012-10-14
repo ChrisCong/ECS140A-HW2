@@ -26,7 +26,7 @@ public class Parser {
     private Token tok; // the current token
     private void scan() {
         tok = scanner.scan();
-        System.out.println(tok);
+        //System.out.println(tok);
     }
     
     private Scan scanner;
@@ -163,9 +163,11 @@ public class Parser {
 
     private void print(){
         mustbe(TK.PRINT);
-        
-        if( is(TK.STR)) {	
+        /////////////// need to distinguish between string or expression 
+        scan();
+        if( is(TK.STR))  {	
         	gcprint("printf(\"%s\\n\", ");
+        	gcprint("\"");
         	word(); 
         }
         else {

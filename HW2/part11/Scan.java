@@ -269,7 +269,7 @@ public class Scan {
   
         // no keyword matched, so ...
         //return TK.ID;
-        return TK.STR;
+        return TK.STR; //////need to distinguish between string and ID (identifier) 
     }
 
 }
