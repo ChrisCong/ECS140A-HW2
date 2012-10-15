@@ -53,7 +53,10 @@ public class TK {
  public static final TK GE     = new TK("TK.GE");       // >=
  
  ///////////////////////////////////////////////////
- public static final TK QM 	   = new TK("TK.QM");		// ""
+ public static final TK QM 	   = new TK("TK.QM");			// ""
+ public static final TK QUESTION = new TK("TK.QUESTION"); 	// ?
+ public static final TK PERCENT= new TK("TK.PERCENT");  	// %
+ //public static final TK BACKSLASH = new TK("TK.BACKSLASH"); // /
 /////////////////////////////////////////////////////
 
  public static final TK ID     = new TK("TK.ID");       // identifier

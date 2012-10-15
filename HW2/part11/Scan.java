@@ -106,6 +106,10 @@ public class Scan {
            ////////////////////////////////////////////////////////             
                     case '"':
                     	return ccase1('"', TK.QM);
+                    case '?':
+                    	return ccase1('?', TK.QUESTION);
+                    case '%': 
+                    	return ccase1('%', TK.PERCENT);
 
 // QUESTION 3:  What does the following case and the code in it do?
                     case '/':

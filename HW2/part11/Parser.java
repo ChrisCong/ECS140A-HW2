@@ -164,10 +164,9 @@ public class Parser {
     private void print(){
         mustbe(TK.PRINT);
         /////////////// need to distinguish between string or expression 
-        scan();
-        if( is(TK.STR))  {	
+        if( is(TK.STR) || is(TK.QM))  {
         	gcprint("printf(\"%s\\n\", ");
-        	gcprint("\"");
+        	//gcprint("\"");
         	word(); 
         }
         else {
@@ -288,6 +287,7 @@ public class Parser {
     }
 
     private void factor(){
+    	//System.out.println("in factor");
         if( is(TK.LPAREN) ) {
             gcprint("(");
             scan();
