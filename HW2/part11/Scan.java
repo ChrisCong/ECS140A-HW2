@@ -81,7 +81,6 @@ public class Scan {
                 /* identifier. */
                 String id = buildID();
             //////////////////////////////////////////////////////// 
-                //return new Token(TK.STR, id, linenumber);
                 return new Token(keywordLookup(id), id, linenumber);
             }
             else if ( myisdigit((char) c) ) {
@@ -268,8 +267,12 @@ public class Scan {
         if (str.equals("downto"))    return TK.DOWNTO;
   
         // no keyword matched, so ...
-        //return TK.ID;
-        return TK.STR; //////need to distinguish between string and ID (identifier) 
+        if(str.indexOf('"')==-1)
+        	return TK.STR; //////need to distinguish between string and ID (identifier) 
+        else {
+        	//System.out.println(str.indexOf('"'));
+        	return TK.ID;
+        }
     }
 
 }
