@@ -55,6 +55,9 @@ public class Scan {
     private int c;           // current or putback char
                              // (int rather than char to handle EOF)
     private static final int EOF = -1;
+    /////////////////////////////////
+    private boolean QM;		// checks if quotation mark
+    private int QMcount=0;
 
     // call to advance token stream.
     // acts as a generator (iterator) over input.
@@ -105,6 +108,8 @@ public class Scan {
                         return ccase1('-', TK.MINUS);
            ////////////////////////////////////////////////////////             
                     case '"':
+                    	QM=true;
+                    	QMcount++;
                     	return ccase1('"', TK.QM);
                     case '?':
                     	return ccase1('?', TK.QUESTION);
@@ -257,7 +262,7 @@ public class Scan {
         // test for each keyword token, one after another.
         //(not best way to handle this, but expedient.)
         if (str.equals("var"))       return TK.VAR;
-        if (str.equals("const"))     return TK.CONST;
+        if (str.equals("const"))	 return TK.CONST;	
         if (str.equals("print"))     return TK.PRINT;
         if (str.equals("if"))        return TK.IF;
         if (str.equals("then"))      return TK.THEN;
@@ -271,10 +276,12 @@ public class Scan {
         if (str.equals("downto"))    return TK.DOWNTO;
   
         // no keyword matched, so ...
-        if(str.indexOf('"')==-1)
-        	return TK.STR; //////need to distinguish between string and ID (identifier) 
+        if(QM==true && QMcount!=2) { 
+        		return TK.STR; //////need to distinguish between string and ID (identifier) 
+        }
         else {
-        	//System.out.println(str.indexOf('"'));
+        	QMcount=0;
+        	System.out.println("this is ID");
         	return TK.ID;
         }
     }

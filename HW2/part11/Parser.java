@@ -26,7 +26,7 @@ public class Parser {
     private Token tok; // the current token
     private void scan() {
         tok = scanner.scan();
-        //System.out.println(tok);
+        System.out.println(tok);
     }
     
     private Scan scanner;
